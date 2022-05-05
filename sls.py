@@ -125,7 +125,7 @@ class Ui_SLS(object):
         self.actionExport.setText(_translate("SLS", "Export"))
         
 
-    def loadData(self): #Obviosuly logic to load in the Database.
+    def loadData(self): #Loads data into the table.
         tablerow = 0 
         for row in db.cursor.execute(db.dbLogic()):
             self.dataTable.setRowCount(tablerow+1)
@@ -135,7 +135,7 @@ class Ui_SLS(object):
             self.dataTable.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(row[4]))
             tablerow+=1
             
-    def showInfoMessage(self, arg):
+    def showInfoMessage(self, arg): #arg will pass the message within the info message popup.
         msgBox = QtWidgets.QMessageBox()
         msgBox.setText(arg)
         msgBox.setIcon(QtWidgets.QMessageBox.Information)
@@ -143,7 +143,7 @@ class Ui_SLS(object):
         msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
         x = msgBox.exec_()
 
-    def showError(self, arg): #Designed that the ARG will pass the error message. 
+    def showError(self, arg): #Designed that the arg will pass the error message. 
         msgBox = QtWidgets.QMessageBox()
         msgBox.setText(arg)
         msgBox.setIcon(QtWidgets.QMessageBox.Critical)
